@@ -25,8 +25,6 @@ func main() {
 		}
 		tempValue := (math.Floor(value / 3)) -2
 		total += tempValue
-		fmt.Printf("%.1f\n", value)
-		fmt.Printf("%.1f\n", tempValue)
 		fmt.Printf("%.1f\n", total)
 	}
 
