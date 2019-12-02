@@ -25,8 +25,9 @@ func main() {
 		}
 		tempValue := (math.Floor(value / 3)) -2
 		total += tempValue
-		fmt.Printf("%.1f\n", total)
 	}
+
+	fmt.Printf("%.1f\n", total)
 
 	if err := scanner.Err(); err != nil {
 		panic(err)
