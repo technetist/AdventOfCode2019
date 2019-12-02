@@ -10,7 +10,7 @@ import (
 
 func main() {
 	filepath := "/Users/adrien/go/src/github.com/vehcklox/AdventOfCode2019/Day1/data-set.txt"
-	total := 0.00
+	t := 0.00
 	file, err := os.Open(filepath)
 	if err != nil {
 		panic(err)
@@ -23,31 +23,30 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		usedTotal := 0.00
-		dividedValue := math.Floor(value / 3)
-		subtractedValue := dividedValue - 2
-		tempValue := subtractedValue
-		runningTotal := subtractedValue
+		u, d := 0.00, math.Floor(value/3)
+		s := d - 2
+		f := s
+		r := s
 		for {
-			if math.Floor(tempValue/3) <= 0.00 {
-				usedTotal = runningTotal
+			if math.Floor(f/3) <= 0.00 {
+				u = r
 				break
 			} else {
-				dividedValue := math.Floor(tempValue / 3)
+				dividedValue := math.Floor(f / 3)
 				subtractedValue := dividedValue - 2
 				if subtractedValue <= 0.00 {
-					usedTotal = runningTotal
+					u = r
 					break
 				} else {
-					tempValue = subtractedValue
-					runningTotal += tempValue
+					f = subtractedValue
+					r += f
 				}
 			}
 		}
-		total += usedTotal
+		t += u
 	}
 
-	fmt.Printf("%.1f\n", total)
+	fmt.Printf("%.1f\n", t)
 
 	if err := scanner.Err(); err != nil {
 		panic(err)
